@@ -16,19 +16,23 @@ export default function Evento_page() {
                     <input className='texto-input' type="text" placeholder='Digite aqui' />
 
                     <select className='selecionar'>
-                        <option value="Selecione" >Selecione</option>
-                        <option value="Selecione" >Selecione</option>
-                        <option value="Selecione" >Selecione</option>
+                        <option value="0" disabled selected hidden >Selecione</option>
+                        <option value="1" >JavaScript</option>
+                        <option value="2" >CSharp</option>
+                        <option value="3" >Python</option>
+                        <option value="4" >TypeScript</option>
                     </select>
 
                     <div>
-                        <input type="checkbox" /><label>Opção 1</label>
-                        <input type="checkbox" /><label>Opção 2</label>
-                    </div>
+                        <div className="input-box">
+                            <input type="checkbox" /><label>Opção 1</label>
+                            <input type="checkbox" /><label>Opção 2</label>
+                        </div>
 
-                    <div>
-                        <input type="checkbox" /><label>Opção 1</label>
-                        <input type="checkbox" /><label>Opção 2</label>
+                        <div className="input-box">
+                            <input type="checkbox" /><label>Opção 1</label>
+                            <input type="checkbox" /><label>Opção 2</label>
+                        </div>
                     </div>
 
                     <button>Okay</button>
