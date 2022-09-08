@@ -2,8 +2,24 @@ import './index.scss'
 
 
 import Tema from '../components/header/index.js'
+import { useEffect, useState } from 'react'
 
 export default function Evento_page() {
+    const [linguagem, setLinguagem] = useState('');
+    const [texto, setTexto] = useState('Olá, seja bem-vindo!');
+
+    const [titulo, setTitulo] = useState(false);
+
+    function textos() {
+        if (texto === null) {
+            return(setTitulo(false))
+        }
+        else if (linguagem === null) {
+            return(setTitulo(true))
+        }
+    }
+
+
     return (
         <main>
             <Tema tema="Eventos" />
@@ -11,16 +27,22 @@ export default function Evento_page() {
             <section className='evento-page'>
                 <div className="info">
 
-                    <h2>Olá, seja bem-vindo!</h2>
+                    {titulo === false &&
+                        <h2> {linguagem} </h2>
+                    }
 
-                    <input className='texto-input' type="text" placeholder='Digite aqui' />
+                    {titulo === true &&
+                        <h2> {texto} </h2>
+                    }
 
-                    <select className='selecionar'>
-                        <option value="0" disabled selected hidden >Selecione</option>
-                        <option value="1" >JavaScript</option>
-                        <option value="2" >CSharp</option>
-                        <option value="3" >Python</option>
-                        <option value="4" >TypeScript</option>
+                    <input className='texto-input' type="text" placeholder='Digite aqui' onChange={e => setTexto(e.target.value)} />
+
+                    <select className='selecionar' onChange={e => setLinguagem(e.target.value)}>
+                        <option disabled selected hidden >Selecione</option>
+                        <option value="JavaScript" >JavaScript</option>
+                        <option value="CSharp" >CSharp</option>
+                        <option value="Python" >Python</option>
+                        <option value="TypeScript" >TypeScript</option>
                     </select>
 
                     <div>
@@ -39,7 +61,7 @@ export default function Evento_page() {
 
                 </div>
             </section>
-            
+
         </main>
     )
 }
